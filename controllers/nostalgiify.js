@@ -90,7 +90,7 @@ const createPlaylist = async (req = request, res = response) => {
     const { access_token, user_id, year, month, day } = req.body;
 
     const name = `Nostalgiify ${day}/${month}/${year}`;
-    const description = `Made with Nostalgiify at `;
+    const description = `Made with Nostalgiify at https://roadieroundup.github.io/Nostalgiify-Frontend`;
 
     try {
         const songs = await getSongs(year, month, day);
