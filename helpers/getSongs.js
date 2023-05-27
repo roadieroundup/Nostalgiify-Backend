@@ -15,8 +15,8 @@ const getSongs = async (year, month, day) => {
 
     const page = await browser.newPage();
     await page.goto(url + `${year}-${month}-${day}/`, {
-        waitUntil: 'load',
-        timeout: 80000,
+        waitUntil: 'domcontentloaded',
+        timeout: 0,
     });
 
     //! OPTIMIZE THIS IF POSSIBLE
