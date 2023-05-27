@@ -18,7 +18,12 @@ const getSongs = async (year, month, day) => {
     );
 
     const page = await browser.newPage();
-    await page.goto(url + `${year}-${month}-${day}/`);
+    await page.goto(url + `${year}-${month}-${day}/`,{
+        options: {
+            waitUntil: 'load',
+            timeout: 80000,
+        }
+    });
 
     //! OPTIMIZE THIS IF POSSIBLE
     const titleAndArtist = await page.$$eval('.a-no-trucate', result => {
