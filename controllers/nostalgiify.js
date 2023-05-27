@@ -9,7 +9,8 @@ const getUris = require('../helpers/getUris');
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-const redirect_uri = 'http://localhost:5173/callback';
+const redirect_uri =
+    'https://roadieroundup.github.io/Nostalgiify-Frontend/callback';
 
 const startPermission = async (req, res = response) => {
     const state = generateRandomString(16);
