@@ -6,23 +6,17 @@ const url = 'https://www.billboard.com/charts/hot-100/';
 
 const mySecret = process.env.BROWSERLESS_SECRET;
 
-
-
 const getSongs = async (year, month, day) => {
     // const browser = await chromium.launch();
-
-    
 
     const browser = await pw.chromium.connectOverCDP(
         'wss://chrome.browserless.io?token=' + mySecret
     );
 
     const page = await browser.newPage();
-    await page.goto(url + `${year}-${month}-${day}/`,{
-        options: {
-            waitUntil: 'load',
-            timeout: 80000,
-        }
+    await page.goto(url + `${year}-${month}-${day}/`, {
+        waitUntil: 'load',
+        timeout: 80000,
     });
 
     //! OPTIMIZE THIS IF POSSIBLE
@@ -45,6 +39,5 @@ const getSongs = async (year, month, day) => {
 
     return ListOfSongs;
 };
-
 
 module.exports = getSongs;
