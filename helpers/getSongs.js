@@ -1,9 +1,12 @@
 // const { chromium } = require('playwright');
 const pw = require('playwright');
+require('dotenv').config();
 
 const url = 'https://www.billboard.com/charts/hot-100/';
 
 const mySecret = process.env.BROWSERLESS_SECRET;
+
+
 
 const getSongs = async (year, month, day) => {
     // const browser = await chromium.launch();
